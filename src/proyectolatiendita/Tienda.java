@@ -9,11 +9,13 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +32,9 @@ public class Tienda extends javax.swing.JFrame {
     public Tienda() {
         initComponents();
         iniciarComponentes();
+        
+        
+       
     }
 
     public void iniciarComponentes()
@@ -76,7 +81,8 @@ public class Tienda extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        TxtPrecio1 = new java.awt.TextField();
+        TxtCantidad = new java.awt.TextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,7 +150,15 @@ public class Tienda extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Gungsuh", 0, 12)); // NOI18N
         jLabel8.setText("Cantidad");
 
-        TxtPrecio1.setFont(new java.awt.Font("Gungsuh", 0, 12)); // NOI18N
+        TxtCantidad.setFont(new java.awt.Font("Gungsuh", 0, 12)); // NOI18N
+
+        jButton2.setFont(new java.awt.Font("Gungsuh", 0, 12)); // NOI18N
+        jButton2.setText("Ir a Factura");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,28 +171,31 @@ public class Tienda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
                     .addComponent(jLabel7)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtPrecio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TxtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TxtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1)
-                        .addComponent(jScrollPane2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TxtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TxtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane2))
                         .addGap(31, 31, 31))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton1)
-                        .addGap(103, 103, 103))))
+                        .addComponent(TxtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(370, 370, 370)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addGap(69, 69, 69))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,39 +204,38 @@ public class Tienda extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel3)))
                         .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TxtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
+                        .addComponent(jLabel3)))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel7))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TxtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(TxtPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45))
+                            .addComponent(TxtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(107, 107, 107))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(92, 92, 92))))
         );
 
         pack();
@@ -281,99 +297,119 @@ public class Tienda extends javax.swing.JFrame {
              
     }//GEN-LAST:event_ListaCategoriaMouseClicked
 
-    private void ListaProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaProductoMouseClicked
-                    // TODO add your handling code here:
-        if(ListaProducto.getSelectedValue().toString().equals("Martillo marca ACME"))
-            {
-                TxtCodigo.setText("001");
-                TxtPrecio.setText("130.00");
-                
-                ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\001.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-                
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Martillo marca PHILIPHS"))
-            {
-                TxtCodigo.setText("002");
-                TxtPrecio.setText("110.00");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\002.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Sierra marca STAHL"))
-            {
-                TxtCodigo.setText("003");
-                TxtPrecio.setText("450");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\003.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Sierra marca FEHN"))
-            {
-                TxtCodigo.setText("004");
-                TxtPrecio.setText("239.00");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\004.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Playwood"))
-            {
-                TxtCodigo.setText("005");
-                TxtPrecio.setText("345.00");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\001.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Cedro"))
-            {
-                TxtCodigo.setText("006");
-                TxtPrecio.setText("602.00");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\001.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Taladro marca ACME"))
-            {
-                TxtCodigo.setText("007");
-                TxtPrecio.setText("420.00");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\007.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Taladro marca REIMS"))
-            {
-                TxtCodigo.setText("008");
-                TxtPrecio.setText("237.00");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\008.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-            if(ListaProducto.getSelectedValue().toString().equals("Clavo 1 pulg"))
-            {
-                TxtCodigo.setText("009");
-                TxtPrecio.setText("1.00");
-                    ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\009.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-                }
-            if(ListaProducto.getSelectedValue().toString().equals("Clavo 1/2 pulg"))
-            {
-                TxtCodigo.setText("010");
-                TxtPrecio.setText("0.50");
-                 ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\010.jpg");
-                Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
-                jLabel6.setIcon(icono);
-            }
-        
-    }//GEN-LAST:event_ListaProductoMouseClicked
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        String codigo, DescProd, precio, cantidad, Subtotal = "";
+        codigo = this.TxtCodigo.getText();
+        cantidad = this.TxtCantidad.getText();
+        precio = this.TxtPrecio.getText();
+        DescProd=ListaProducto.getSelectedValue().toString();
         
+        Factura fc = new Factura();
+        fc.set_datos(codigo, DescProd, precio, cantidad);
+// TODO add your handling code here:
+//        DefaultTableModel tmodel = (DefaultTableModel) jTable2.getModel();
+        float st = 0;
         DefaultTableModel tmodel = new DefaultTableModel();
+        st = Float.parseFloat(TxtPrecio.getText())* Float.parseFloat(TxtCantidad.getText());
+        tmodel.addRow(new Object[]{TxtCodigo.getText(), TxtPrecio.getText(), ListaProducto.getSelectedValue().toString(), TxtCantidad.getText(), String.valueOf(st)});
+//        tmodel.addRow(new Object[]{TxtCodigo.getText(),TxtPrecio.getText(),ListaProducto.getSelectedValue(),TxtCantidad.getText()});
+        
+        fc.DibujarTabla(tmodel);
             
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Factura f = new Factura();
+       f.show();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ListaProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaProductoMouseClicked
+        // TODO add your handling code here:
+        if(ListaProducto.getSelectedValue().toString().equals("Martillo marca ACME"))
+        {
+            TxtCodigo.setText("001");
+            TxtPrecio.setText("130.00");
+
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\001.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Martillo marca PHILIPHS"))
+        {
+            TxtCodigo.setText("002");
+            TxtPrecio.setText("110.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\002.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Sierra marca STAHL"))
+        {
+            TxtCodigo.setText("003");
+            TxtPrecio.setText("450");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\003.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Sierra marca FEHN"))
+        {
+            TxtCodigo.setText("004");
+            TxtPrecio.setText("239.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\004.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Playwood"))
+        {
+            TxtCodigo.setText("005");
+            TxtPrecio.setText("345.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\001.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Cedro"))
+        {
+            TxtCodigo.setText("006");
+            TxtPrecio.setText("602.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\001.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Taladro marca ACME"))
+        {
+            TxtCodigo.setText("007");
+            TxtPrecio.setText("420.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\007.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Taladro marca REIMS"))
+        {
+            TxtCodigo.setText("008");
+            TxtPrecio.setText("237.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\008.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Clavo 1 pulg"))
+        {
+            TxtCodigo.setText("009");
+            TxtPrecio.setText("1.00");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\009.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+        if(ListaProducto.getSelectedValue().toString().equals("Clavo 1/2 pulg"))
+        {
+            TxtCodigo.setText("010");
+            TxtPrecio.setText("0.50");
+            ImageIcon imagen = new ImageIcon("D:\\Users\\OliverAmitahi\\Desktop\\FERRE_SENACO\\010.jpg");
+            Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_DEFAULT));
+            jLabel6.setIcon(icono);
+        }
+
+    }//GEN-LAST:event_ListaProductoMouseClicked
 
     
     
@@ -420,10 +456,11 @@ public class Tienda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList ListaCategoria;
     private javax.swing.JList ListaProducto;
+    private java.awt.TextField TxtCantidad;
     private java.awt.TextField TxtCodigo;
     private java.awt.TextField TxtPrecio;
-    private java.awt.TextField TxtPrecio1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -435,3 +472,7 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
+    
+
+
+
